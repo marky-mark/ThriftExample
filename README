@@ -1,0 +1,40 @@
+----------------------------------------------------------------------------------------------------
+----------------------------------MAVEN PLUGIN TO GENERATE FILES------------------------------------
+----------------------------------------------------------------------------------------------------
+
+Work needs 0.6 so download this version follow the instructions in the README
+
+https://github.com/dtrott/maven-thrift-plugin
+
+----------------------------------------------------------------------------------------------------
+----------------------------------MANUAL GENERATE FILES---------------------------------------------
+----------------------------------------------------------------------------------------------------
+
+Thrift Example
+http://www.javacodegeeks.com/2012/03/apache-thrift-quickstart-tutorial.html
+
+----------------------------------------------------------------------------------------------------
+
+To sum up Ubuntu installation steps.
+
+1. Install required dependencies.
+$ sudo apt-get install libboost-dev libboost-test-dev libboost-program-options-dev libevent-dev automake
+libtool flex bison pkg-config g++ libssl-dev
+2. Go to the installation root directory.
+3. $ ./configure
+4. $ make
+5. Become super user and
+   $ make install
+
+Read more: http://www.javacodegeeks.com/2012/03/apache-thrift-quickstart-tutorial.html#ixzz214joN7Zv
+
+----------------------------------------------------------------------------------------------------
+
+generate Java code using following command line.
+
+$ thrift --gen java arithmetic.thrift
+
+Read more: http://www.javacodegeeks.com/2012/03/apache-thrift-quickstart-tutorial.html#ixzz214jCmPDt
+
+-----------------------------------------------------------------------------------------------------
+
