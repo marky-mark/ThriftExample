@@ -38,20 +38,3 @@ Read more: http://www.javacodegeeks.com/2012/03/apache-thrift-quickstart-tutoria
 
 -----------------------------------------------------------------------------------------------------
 
-*****************************************************************************************************
-
-FOLLOW THESE INSTRUCTIONS->
-
-Download and install thrift 0.5 locally
-
-Install system requirements as per
-http://wiki.apache.org/thrift/GettingUbuntuPackages
-wget
-https://mttnow.onconfluence.com/download/attachments/1343649/thrift-0.6.1.tar.gz
-tar zxvf thrift-0.6.1.tar.gz
-cd thrift-0.6.1/
-./configure ANT=/opt/ant/bin/ant JAVAC=/opt/jdk/bin/javac
-JAVA=/opt/jdk/bin/java --without-python --without-cpp
-make
-sudo make install ANT=/opt/ant/bin/ant JAVA_HOME=/opt/jdk
-which thrift
