@@ -55,3 +55,37 @@ JAVA=/opt/jdk/bin/java --without-python --without-cpp
 make
 sudo make install ANT=/opt/ant/bin/ant JAVA_HOME=/opt/jdk
 which thrift
+
+
+
+
+*****************************************************************************************************
+
+
+« Apache Thrift Quickstart TutorialCreating a OSGi based Thrift Service »
+Securing a Thrift service
+October 3, 2011 by Buddhika Chamith
+A previous post explained how to create a Thrift service and consume it in different modes such as blocking, non blocking etc. Now if you are thinking of using Apache Thrift for client-server data exchange over a public network, the chances are that you may run in to the requirement of securing the data transmitted over Thrift. This post explains how SSL can be used to secure communication between a Thrift server and a Thrift client.
+
+Prerequisites
+1. I will be using the same service definition (arithmetic.thrift) and generated codes plus the service implementation (ArithmeticServiceImpl) from earlier post.
+
+2. You need to have a key store with server private key at server-side and a trust store containing server’s public key at client side. For this example let’s create a key store and trust store using JDK keytool.
+
+Creating key store
+1. Go to Java installation bin directory in command line and execute following.
+
+1
+keytool -genkeypair -alias certificatekey -keyalg RSA -validity 7 -keystore keystore.jks
+2. Give a suitable password and answers to the prompts. After that it will create the key store keystore.jks containing generated private/ public key pair.
+
+3. Export the certificate (cret.cer) containing the public key from the key store using following command.
+
+1
+keytool -export -alias certificatekey -keystore keystore.jks -rfc -file cert.cer
+Create trust store
+1. Now let’s create the trust store (truststore.jks) and import the certificate to it. This can be done using single command line as given below.
+
+1
+keytool -import -alias certificatekey -file cert.cer -keystore truststore.jks
+Again give a password and say yes to the prompt asking whether to trust this certificate. Now the certificate setup is complete. Let’s create the secure Thrift server and client to consume it.
